@@ -1,33 +1,71 @@
 document.getElementById('signupForm').addEventListener('submit', async function(event) {
-  event.preventDefault();
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const email = document.getElementById('email').value;
-  const number = document.getElementById('number').value;
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
+    event.preventDefault();
+    
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const number = document.getElementById('number').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-  if (password !== confirmPassword) {
-      alert('Les mot de passes ne correspondent pas!');
-      return;
-  }
+    if (password !== confirmPassword) {
+        alert('Les mots de passes ne correspondent pas!');
+        return;
+    }
 
-  try {
-      const response = await axios.post('http://localhost:8000/api/register', {
-          firstName,
-          lastName,
-          email,
-          number,
-          password,
-          confirmPassword
-      });
+    try {
+        const response = await axios.post('http://localhost:8000/api/register', {
+            firstName,
+            lastName,
+            email,
+            number,
+            password,
+            confirmPassword
+        });
 
-      alert(response.data.msg);
-  } catch (error) {
-      if (error.response && error.response.data && error.response.data.errors) {
-          alert(error.response.data.errors.map(err => err.msg).join('\n'));
-      } else {
-          alert('An error occurred. Please try again later.');
-      }
-  }
+        if (response.status === 201) {
+            alert(response.data.msg);
+            window.location.href = 'connexion.html'; 
+        }
+    } catch (error) {
+        if (error.response && error.response.data && error.response.data.errors) {
+            alert(error.response.data.errors.map(err => err.msg).join('\n'));
+        } 
+    }
 });
+
+
+// document.getElementById('signupForm').addEventListener('submit', async (event) => {
+//     event.preventDefault();
+
+//     const firstName = document.getElementById('firstName').value;
+//     const lastName = document.getElementById('lastName').value;
+//     const email = document.getElementById('email').value;
+//     const number = document.getElementById('number').value;
+//     const password = document.getElementById('password').value;
+//     const confirmPassword = document.getElementById('confirmPassword').value;
+
+//     // Basic password match check
+//     if (password !== confirmPassword) {
+//         alert('Les mots de passe ne correspondent pas.');
+//         return;
+//     }
+
+//     try {
+//         const response = await axios.post('http://localhost:8000/api/register', {
+//             firstName,
+//             lastName,
+//             email,
+//             number,
+//             password,
+//             confirmPassword
+//         });
+
+//         if (response.status === 201) {
+//             window.location.href = 'connexion.html';
+//         }
+//     } catch (error) {
+//         console.error('Erreur lors de la création du compte:', error);
+//         alert('Une erreur s\'est produite. Veuillez réessayer.');
+//     }
+// });

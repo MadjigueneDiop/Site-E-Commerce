@@ -116,6 +116,9 @@ footer{
   }
   .connect {
     background-color: blueviolet;
+    width: 200px;
+    border-radius: 10px;
+
   }
   
   .color {
@@ -124,6 +127,27 @@ footer{
   .eyeIcon{
     color: black;
   }
+
+  /* styles.css */
+.backCConnexion {
+  background-color: #f8f9fa; /* Example background color */
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.logoMaron {
+  max-width: 200px;
+}
+
+.email {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+
+
+
+
 
 @media screen and (max-width: 768px) {
 
@@ -144,6 +168,9 @@ footer{
         }
         .backCConnexion{
             width: 380px;
+        }
+        .fa-cart-shopping {
+          margin-top: 12px;
         }
 
     }

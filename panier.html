@@ -126,7 +126,8 @@
                             <h6 id="totalPrice">0 FCFA</h6>
                         </div>
                         <button style="background-color: blueviolet; color: white;" id="orderButton" class="btn w-100 shadow">
-                            Commander (<span id="totalPriceButton">0 FCFA</span>)
+                                Commander (<span id="totalPriceButton">0 FCFA</span>)
+
                         </button>
                     </div>
                 </div>
@@ -143,23 +144,25 @@
             const totalPriceElement = document.getElementById('totalPrice');
             const totalPriceButtonElement = document.getElementById('totalPriceButton');
             const emptyMessage = document.getElementById('empty-message');
-
+            const orderButton = document.getElementById('orderButton');
+            const orderToast = new bootstrap.Toast(document.getElementById('orderToast'));
+    
             function updateCartCount() {
                 const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
                 cartCount.textContent = totalItems;
                 cartCountElements.forEach(element => {
                     element.textContent = totalItems;
                 });
-
+    
                 emptyMessage.style.display = totalItems > 0 ? 'none' : 'block';
             }
-
+    
             function calculateTotalPrice() {
                 const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
                 totalPriceElement.textContent = `${totalPrice} FCFA`;
                 totalPriceButtonElement.textContent = `${totalPrice} FCFA`;
             }
-
+    
             function displayCartItems() {
                 cartItemsContainer.innerHTML = '';
                 cart.forEach(item => {
@@ -183,7 +186,7 @@
                     cartItemsContainer.appendChild(itemDiv);
                 });
             }
-
+    
             function removeCartItem(itemName) {
                 const itemIndex = cart.findIndex(item => item.name === itemName);
                 if (itemIndex > -1) {
@@ -194,20 +197,25 @@
                     displayCartItems();
                 }
             }
-
+    
             cartItemsContainer.addEventListener('click', (event) => {
                 if (event.target.classList.contains('remove-item')) {
                     const itemName = event.target.getAttribute('data-name');
                     removeCartItem(itemName);
                 }
             });
-
+    
+            orderButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                orderToast.show();
+            });
+    
             updateCartCount();
             calculateTotalPrice();
             displayCartItems();
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <footer class= "fw-bold mt-5">
         <div class="container-fluid  pt-5 pb-0">
@@ -269,7 +277,18 @@
         </div>
       </footer>
       <script src="script.js"></script>
-      
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="orderToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Votre commande a été passée avec succès!
+        </div>
+    </div>
+</div>
+
       </body>
       </html>
       

@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YacineShop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-
-  <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -104,92 +102,40 @@
             </div>
         </nav>
         </header>
-  <div class="backCConnexion shadow d-flex justify-content-center my-5 container">
-    <form class="form" id="signupForm">
-      <div class="text-center">
-        <img src="images/Online Shopping Cart Logo.png" class="logoCart" alt="Logo">
-        <div class="color mt-3 fw-bold">
-          <h3>Créez votre compte</h3>
-        </div>
-      </div>
-      <div class="auth d-flex justify-content-center align-items-center">
-        <input
-          class="nom form-control"
-          type="text"
-          placeholder="Prénom"
-          required
-          id="firstName"
-        />
-        <input
-          class="nom form-control"
-          type="text"
-          placeholder="Nom"
-          required
-          id="lastName"
-        />
-      </div>
-      <div class="auth d-flex justify-content-center align-items-center">
-        <input
-          class="nom form-control"
-          type="email"
-          placeholder="Email"
-          required
-          id="email"
-        />
-        <input
-          class="nom form-control"
-          type="number"
-          placeholder="Téléphone"
-          required
-          id="number"
-        />
-      </div>
-        <div class="  d-flex postis align-items-center gap-2 ">
-
-            <input
-            class="nom form-control"
-            type="password"
-            placeholder="Mot de passe"
-            required
-            id="password"
-          />
-          <span id="togglePassword" class="eyes oublie">
-              <i class="fa fa-eye-slash" id="eyeIconPassword"></i>
-          </span>
-        <input
-        class="nom form-control"
-        type="password"
-        placeholder="Confirmer mot de passe"
-        required
-        id="confirmPassword"
-      />
-      <span id="toggleConfirmPassword" class="eyes oublie">
-          <i class="fa fa-eye-slash" id="eyeIconConfirmPassword"></i>
-      </span></div>
-      
-      <div class="d-flex mb-5 justify-content-center">
-        <button
-          type="submit"
-          class=" fs-5 fw-bold mt-5 connect border-0 text-white p-2">
-          Créer un compte
-        </button>
-      </div>
-    </form>
+<body>
+        <div class="backCConnexion shadow d-flex align-items-center justify-content-center my-5 container">
+            <form class="form"  id="forgotPasswordForm" >
+              <div class="text-center">
+                <img src="images/Online Shopping Cart Logo.png" class="logoCart" alt="Logo">
+                <div class="color mt-3 fw-bold">
+                  <h3>Réinitialisation mot de passe</h3>
+                </div>
+              </div>
+              <div class="auth d-flex justify-content-center align-items-center">
+                <input
+                id="emailInput"
+                class="nom email my-3 form-control"
+                type="email"
+                placeholder="email"
+                required
+              />
+              <div class="creer d-flex justify-content-center align-items-center">
+                <button type="submit" class=" align-items-center connect fs-5 fw-bold border-0 p-2 text-white">
+                        Envoyer
+                    </button>
+            </div>
+      </form>
+    </div>
   </div>
-
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="inscrire.js"></script>
-  <footer class= "fw-bold mt-5">
-    <div class="container-fluid  pt-5 pb-0">
+  <footer class="fw-bold mt-5">
+    <div class="container-fluid pt-5 pb-0">
         <div class="container">
             <div class="footer1">
                 <div class="row">
                     <div class="col-md-3">
                         <img src="images/Online Shopping Cart Logo.png" alt="logo du site" class="logo">
-  
                         <p class="mt-2">
-                            YacineShop est boutique de shopping en ligne créer en 2018.Elle vend tout ce qui est
-                            vêtements
+                            YacineShop est boutique de shopping en ligne créer en 2018. Elle vend tout ce qui est vêtements
                         </p>
                     </div>
                     <div class="col-md-2 col-6">
@@ -234,46 +180,10 @@
                     <p class="fw-bold">Politique de confidentialité</p>
                 </div>
             </div>
-  
         </div>
     </div>
-  </footer>
-  <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    const passwordField = document.getElementById('password');
-    const confirmPasswordField = document.getElementById('confirmPassword');
-    const togglePassword = document.getElementById('togglePassword');
-    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-    const eyeIconPassword = document.getElementById('eyeIconPassword');
-    const eyeIconConfirmPassword = document.getElementById('eyeIconConfirmPassword');
-
-    togglePassword.addEventListener('click', function () {
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            eyeIconPassword.classList.remove('fa-eye-slash');
-            eyeIconPassword.classList.add('fa-eye');
-        } else {
-            passwordField.type = 'password';
-            eyeIconPassword.classList.remove('fa-eye');
-            eyeIconPassword.classList.add('fa-eye-slash');
-        }
-    });
-
-    toggleConfirmPassword.addEventListener('click', function () {
-        if (confirmPasswordField.type === 'password') {
-            confirmPasswordField.type = 'text';
-            eyeIconConfirmPassword.classList.remove('fa-eye-slash');
-            eyeIconConfirmPassword.classList.add('fa-eye');
-        } else {
-            confirmPasswordField.type = 'password';
-            eyeIconConfirmPassword.classList.remove('fa-eye');
-            eyeIconConfirmPassword.classList.add('fa-eye-slash');
-        }
-    });
-});
-</script>
-  <script src="inscrire.js"></script>
-
-  </body>
-  </html>
-
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+  <script src="forgotpassword.js"></script>
+</body>
+</html>
